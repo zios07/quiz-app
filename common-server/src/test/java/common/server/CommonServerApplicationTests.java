@@ -1,4 +1,4 @@
-package common.server.commonserver;
+package common.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
