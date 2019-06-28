@@ -5,13 +5,39 @@
       <span>HOME</span>
     </a>
 
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="quizMenu">
+      <mat-icon>poll</mat-icon>
+      <span>Quiz</span>
+    </button>
+
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="questionMenu">
+      <mat-icon>help</mat-icon>
+      <span>Questions</span>
+    </button>
+
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="candidatMenu">
+      <mat-icon>person</mat-icon>
+      <span>Candidats</span>
+    </button>
+
     <span class="fill-remaining-space"></span>
     <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span>
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="menuList">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authMenu">
       <mat-icon>menu</mat-icon>
     </button>
 
-    <mat-menu #menuList="matMenu">
+    <mat-menu #quizMenu="matMenu">
+      <a mat-menu-item routerLink="quiz/form">
+        <mat-icon>add</mat-icon>
+        <span>Add Quiz</span>
+      </a>
+      <a mat-menu-item routerLink="quizzes">
+        <mat-icon>list</mat-icon>
+        <span>View quizzes</span>
+      </a>
+    </mat-menu>
+
+    <mat-menu #authMenu="matMenu">
       <a mat-menu-item routerLink="profil">
         <mat-icon>person</mat-icon>
         <span>Profil</span>
@@ -22,7 +48,26 @@
       </a>
     </mat-menu>
 
+    <mat-menu #questionMenu="matMenu">
+      <a mat-menu-item routerLink="question/form">
+        <mat-icon>add</mat-icon>
+        <span>Add Question</span>
+      </a>
+      <a mat-menu-item routerLink="questions">
+        <mat-icon>list</mat-icon>
+        <span>View questions</span>
+      </a>
+    </mat-menu>
+
+    <mat-menu #candidatMenu="matMenu">
+      <a mat-menu-item routerLink="candidats">
+        <mat-icon>menu</mat-icon>
+        <span>View Candidats</span>
+      </a>
+    </mat-menu>
+
   </mat-toolbar>
+
 
   <mat-toolbar color="primary" *ngIf="!authenticated">
 

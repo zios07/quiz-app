@@ -52,12 +52,16 @@ export class AuthenticationService {
   }
 
   isAuthenticated() {
-    const token = this.tokenService.getToken();
-    if (!token) {
-      return false;
-    }
-    const isExpired = this.jwtHelper.isTokenExpired(token);
-    return !isExpired;
+    // Fake shit
+    return this.tokenService.getToken() ? true : false;
+
+    // Real shit
+    // const token = this.tokenService.getToken();
+    // if (!token) {
+    //   return false;
+    // }
+    // const isExpired = this.jwtHelper.isTokenExpired(token);
+    // return !isExpired;
   }
 
   logout() {

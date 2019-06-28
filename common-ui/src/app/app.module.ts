@@ -14,6 +14,15 @@ import { LoginComponent } from './components/common/login/login.component';
 import { NavComponent } from './components/common/nav/nav.component';
 import { RegisterComponent } from './components/common/register/register.component';
 import { HttpInterceptorService } from './interceptors/http-interceptor.service';
+import { QuizComponent } from './components/candidat/quiz/quiz.component';
+import { ResultComponent } from './components/candidat/result/result.component';
+import { ProfileFormComponent } from './components/shared/profile-form/profile-form.component';
+import { ProfileViewComponent } from './components/shared/profile-view/profile-view.component';
+import { CandidatListComponent } from './components/admin/candidat-list/candidat-list.component';
+import { QuestionListComponent } from './components/admin/question-list/question-list.component';
+import { QuestionFormComponent } from './components/admin/question-form/question-form.component';
+import { QuizListComponent } from './components/admin/quiz-list/quiz-list.component';
+import { QuizFormComponent } from './components/admin/quiz-form/quiz-form.component';
 
 
 @NgModule({
@@ -23,7 +32,16 @@ import { HttpInterceptorService } from './interceptors/http-interceptor.service'
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    QuizComponent,
+    ResultComponent,
+    ProfileFormComponent,
+    ProfileViewComponent,
+    CandidatListComponent,
+    QuestionListComponent,
+    QuestionFormComponent,
+    QuizListComponent,
+    QuizFormComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@ export class NavComponent {
         this.authenticated = this.authService.isAuthenticated();
         this.authService.getConnectedUser().then(user => {
           this.connectedUser = user;
-          if (this.authenticated) {
+          if (this.authenticated && this.connectedUser) {
             this.connectedRole = this.connectedUser.role.roleCode;
           }
         });

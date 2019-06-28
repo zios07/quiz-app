@@ -14,7 +14,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class RegisterComponent implements OnInit {
 
-  title = 'Sign up';
+  title = 'Candidat sign up';
   form: FormGroup;
   submitted = false;
   user: User = new User();
