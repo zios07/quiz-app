@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-nav',
@@ -20,8 +21,10 @@ export class NavComponent {
 
   constructor(
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) {
+    this.username = this.tokenService.getToken();
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.authenticated = this.authService.isAuthenticated();

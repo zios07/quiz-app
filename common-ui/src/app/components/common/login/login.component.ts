@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // Fake shit
-    this.tokenService.saveToken('Dummy Token');
+    this.tokenService.saveToken(this.form.value.username);
     this.authenticated = true;
     if (this.form.value.username === 'admin') {
       this.connectedRole = 'ADMIN';

@@ -21,7 +21,11 @@
     </button>
 
     <span class="fill-remaining-space"></span>
-    <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span>
+    <!-- Fake shit -->
+    <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{username}}</b></span>
+    
+    <!-- Real shit -->    
+    <!-- <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span> -->
     <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authMenu">
       <mat-icon>menu</mat-icon>
     </button>
