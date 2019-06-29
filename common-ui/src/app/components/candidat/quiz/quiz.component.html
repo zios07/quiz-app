@@ -1,37 +1,91 @@
 <!-- Horizontal Steppers -->
 <div class="row">
-  <div class="col-md-12">
+  <div class="col"></div>
+  <div class="col-md-8">
+    <!-- Vertical Steppers -->
+    <div class="row mt-1">
+      <div class="col-md-12">
 
-    <!-- Stepers Wrapper -->
-    <ul class="stepper stepper-horizontal">
+        <!-- Stepers Wrapper -->
+        <ul class="stepper stepper-vertical">
 
-      <!-- First Step -->
-      <li class="completed">
-        <a href="#!">
-          <span class="circle">1</span>
-          <span class="label">First step</span>
-        </a>
-      </li>
+          <!-- First Step -->
+          <li class="completed">
+            <a>
+              <span class="circle">1</span>
+              <span class="label">Question 1</span>
+            </a>
+          </li>
 
-      <!-- Second Step -->
-      <li class="active">
-        <a href="#!">
-          <span class="circle">2</span>
-          <span class="label">Second step</span>
-        </a>
-      </li>
+          <!-- Second Step -->
+          <li class="active">
 
-      <!-- Third Step -->
-      <li class="warning">
-        <a href="#!">
-          <span class="circle"><i class="fas fa-exclamation"></i></span>
-          <span class="label">Third step</span>
-        </a>
-      </li>
+            <!--Section Title -->
+            <a>
+              <span class="circle">2</span>
+              <span class="label">Question 2</span>
+            </a>
 
-    </ul>
-    <!-- /.Stepers Wrapper -->
+            <!-- Section Description -->
+            <div class="step-content lighten-3">
 
+              <br>
+              <form class="text-center">
+                <b> <u>Question :</u></b>
+                <p class="h4 mb-4" styl> - Which of the followings are modules of the Spring Framework ?</p>
+                <b><u>Answer :</u></b><br>
+
+                <!-- Default inline 1-->
+                <mdb-checkbox [inline]="true" [default]="true">Spring Data</mdb-checkbox>
+
+                <!-- Default inline 2-->
+                <mdb-checkbox [inline]="true" [default]="true">Spring MVC</mdb-checkbox>
+
+                <!-- Default inline 3-->
+                <mdb-checkbox [inline]="true" [default]="true">Spring MachineLearning</mdb-checkbox>
+
+                <!-- Default inline 3-->
+                <mdb-checkbox [inline]="true" [default]="true">Spring Batch</mdb-checkbox>
+
+                <br><br>
+
+                <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="light" mdbWavesEffect>Previous</button>
+                <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="blue" mdbWavesEffect>Next</button>
+              </form>
+              <br>
+            </div>
+          </li>
+
+          <!-- Third Step -->
+          <li class="active">
+            <a>
+              <span class="circle">3</span>
+              <span class="label">Question 3</span>
+            </a>
+          </li>
+
+          <!-- Question 3 -->
+          <li class="active">
+            <a>
+              <span class="circle">4</span>
+              <span class="label">Question 4</span>
+            </a>
+          </li>
+
+        </ul>
+        <!-- /.Stepers Wrapper -->
+
+      </div>
+    </div>
+
+    <!-- Steppers Navigation -->
+    <div class="row mt-1">
+      <div class="col-md-12 text-right">
+        <button class="btn btn-primary btn-sm">Submit Quiz</button>
+      </div>
+    </div>
+    <!-- /.Vertical Steppers -->
   </div>
+  <div class="col"></div>
 </div>
 <!-- /.Horizontal Steppers -->
