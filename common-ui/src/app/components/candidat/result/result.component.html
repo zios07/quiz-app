@@ -1,3 +1,19 @@
-<p>
-  result works!
-</p>
+<br><br>
+<form class="text-center border border-light p-5">
+  <p class="h4 mb-4">Here is your Quiz Result : <mdb-badge color="green">PASS</mdb-badge></p>
+</form>
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col">
+      <div style="display: block; width: 500px">
+        <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+          [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

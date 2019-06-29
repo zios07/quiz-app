@@ -5,26 +5,40 @@
       <span>HOME</span>
     </a>
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="quizMenu">
+    <!-- Admin menu -->
+
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="quizMenu" *ngIf="username === 'admin'">
       <mat-icon>poll</mat-icon>
       <span>Quiz</span>
     </button>
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="questionMenu">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="questionMenu" *ngIf="username === 'admin'">
       <mat-icon>help</mat-icon>
       <span>Questions</span>
     </button>
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="candidatMenu">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="candidatMenu" *ngIf="username === 'admin'">
       <mat-icon>person</mat-icon>
       <span>Candidats</span>
+    </button>
+
+    <!-- Candidat menu -->
+
+    <button class="mat-button-menu" mat-button routerLink="quiz" *ngIf="username === 'user'">
+      <mat-icon>help</mat-icon>&nbsp;
+      <span>Start Quiz</span>
+    </button>
+
+    <button class="mat-button-menu" mat-button routerLink="result" *ngIf="username === 'user'">
+      <mat-icon>poll</mat-icon>&nbsp;
+      <span>View Result</span>
     </button>
 
     <span class="fill-remaining-space"></span>
     <!-- Fake shit -->
     <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{username}}</b></span>
-    
-    <!-- Real shit -->    
+
+    <!-- Real shit -->
     <!-- <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span> -->
     <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authMenu">
       <mat-icon>menu</mat-icon>
@@ -42,7 +56,7 @@
     </mat-menu>
 
     <mat-menu #authMenu="matMenu">
-      <a mat-menu-item routerLink="profil">
+      <a mat-menu-item routerLink="candidat/form">
         <mat-icon>person</mat-icon>
         <span>Profil</span>
       </a>

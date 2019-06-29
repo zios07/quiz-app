@@ -1,32 +1,26 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<form class="text-center p-5">
+<div *ngIf="auth.isAuthenticated()">
+  <br><br><br><br><br><br><br><br><br>
+  <form class="text-center p-5">
 
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/candidats">
-      <mat-icon>person</mat-icon><br>
-      <span>
-        Candidats
-      </span>
-    </button>
-    <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/quizzes">
-      <mat-icon>poll</mat-icon><br>
-      <span>
-        Quizzes
-      </span>
-    </button>
-    <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/questions">
-      <mat-icon>help</mat-icon><br>
-      <span>
-        Questions
-      </span>
-    </button>
-  </div>
-</form>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/candidats">
+        <mat-icon>person</mat-icon><br>
+        <span>
+          Candidats
+        </span>
+      </button>
+      <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/quizzes">
+        <mat-icon>poll</mat-icon><br>
+        <span>
+          Quizzes
+        </span>
+      </button>
+      <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/questions">
+        <mat-icon>help</mat-icon><br>
+        <span>
+          Questions
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
