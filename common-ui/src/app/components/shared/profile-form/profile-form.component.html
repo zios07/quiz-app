@@ -1,3 +1,69 @@
-<p>
-  profile-form works!
-</p>
+<br><br>
+<div class="container margin-top">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+
+      <!-- Default form contact -->
+      <form class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">Candidat Profile</p>
+
+        <!-- Name -->
+        <input type="text" id="quizname" class="form-control mb-4" placeholder="First Name">
+        <input type="text" id="quizname" class="form-control mb-4" placeholder="Last Name">
+        <input type="email" id="quizname" class="form-control mb-4" placeholder="Email">
+        <input type="password" id="quizname" class="form-control mb-4" placeholder="Password">
+        <input type="date" id="quizname" class="form-control mb-4" placeholder="Birth date">
+
+
+        <!-- Post -->
+        <label for="">Current post</label>
+        <select class="custom-select">
+          <option value="1">Software Engineer</option>
+          <option value="2">DevOps Lead</option>
+          <option value="3">Project Manager</option>
+        </select>
+        <hr>
+
+        <br>
+        <label>Skills : </label> <br>
+        <!-- Default inline 1-->
+        <mdb-checkbox [inline]="true" [default]="true">Java</mdb-checkbox>
+
+        <!-- Default inline 2-->
+        <mdb-checkbox [inline]="true" [default]="true">Angular</mdb-checkbox>
+
+        <!-- Default inline 3-->
+        <mdb-checkbox [inline]="true" [default]="true">Scrum</mdb-checkbox> <br> <br>
+
+        <!-- Default inline 3-->
+        <mdb-checkbox [inline]="true" [default]="true">Android</mdb-checkbox>
+
+        <!-- Default inline 3-->
+        <mdb-checkbox [inline]="true" [default]="true">Management</mdb-checkbox>
+
+        <!-- Default inline 3-->
+        <mdb-checkbox [inline]="true" [default]="true">DevOps</mdb-checkbox>
+
+        <br>
+
+        <hr>
+
+        <label>Resume : </label> <br><br>
+        <input type="file">
+
+        <br><br>
+
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" type="submit">Save Profile</button>
+
+      </form>
+      <!-- Default form contact -->
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

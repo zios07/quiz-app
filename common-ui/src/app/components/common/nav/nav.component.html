@@ -60,6 +60,10 @@
     </mat-menu>
 
     <mat-menu #candidatMenu="matMenu">
+      <a mat-menu-item routerLink="candidat/form">
+        <mat-icon>add</mat-icon>
+        <span>Add Candidats</span>
+      </a>
       <a mat-menu-item routerLink="candidats">
         <mat-icon>menu</mat-icon>
         <span>View Candidats</span>
@@ -67,7 +71,6 @@
     </mat-menu>
 
   </mat-toolbar>
-
 
   <mat-toolbar color="primary" *ngIf="!authenticated">
 

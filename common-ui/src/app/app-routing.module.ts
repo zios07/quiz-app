@@ -18,12 +18,15 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
+  { path: 'quiz/form', component: QuizFormComponent },
   { path: 'quiz/form/:id', component: QuizFormComponent },
   { path: 'quizzes', component: QuizListComponent },
   { path: 'questions', component: QuestionListComponent },
+  { path: 'question/form', component: QuestionFormComponent },
   { path: 'question/form/:id', component: QuestionFormComponent },
   { path: 'result', component: ResultComponent },
   { path: 'candidats', component: CandidatListComponent },
+  { path: 'candidat/form', component: ProfileFormComponent },
   { path: 'candidat/form/:id', component: ProfileFormComponent },
   { path: '**', redirectTo: '' }
 

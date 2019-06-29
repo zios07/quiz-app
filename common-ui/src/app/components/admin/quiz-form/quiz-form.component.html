@@ -1,3 +1,58 @@
-<p>
-  quiz-form works!
-</p>
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+
+      <!-- Default form contact -->
+      <form class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">New Quiz</p>
+
+        <!-- Name -->
+        <input type="text" id="quizname" class="form-control mb-4" placeholder="Name">
+
+
+        <!-- Default inline 1-->
+        <label for="">Level : </label>&nbsp;&nbsp;&nbsp;
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample"
+            mdbInput>
+          <label class="custom-control-label" for="defaultInline1">Beginner</label>
+        </div>
+
+        <!-- Default inline 2-->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
+            mdbInput>
+          <label class="custom-control-label" for="defaultInline2">Intermediate</label>
+        </div>
+
+        <!-- Default inline 3-->
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
+            mdbInput>
+          <label class="custom-control-label" for="defaultInline3">Advanced</label>
+        </div>
+        <br><br>
+        <!-- Subject -->
+        <label for="">Questions</label>
+        <select class="custom-select" multiple>
+          <option value="1">Question 1</option>
+          <option value="2">Question 2</option>
+          <option value="3">Question 3</option>
+        </select>
+        <br>
+        <br>
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" type="submit">Create quiz</button>
+
+      </form>
+      <!-- Default form contact -->
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
