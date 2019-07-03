@@ -5,6 +5,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { TokenService } from 'src/app/services/token.service';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-nav',
@@ -22,7 +23,8 @@ export class NavComponent {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private roleService: RoleService
   ) {
     this.username = this.tokenService.getToken();
     router.events.subscribe((val) => {
@@ -32,6 +34,7 @@ export class NavComponent {
           this.connectedUser = user;
           if (this.authenticated && this.connectedUser) {
             this.connectedRole = this.connectedUser.role.roleCode;
+            this.roleService.setConnectedRole(this.connectedRole);
           }
         });
       }

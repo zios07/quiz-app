@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "common-ui": {
+    "quiz-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/common-ui",
+            "outputPath": "dist/quiz-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "common-ui:build"
+            "browserTarget": "quiz-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "common-ui:build:production"
+              "browserTarget": "quiz-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "common-ui:build"
+            "browserTarget": "quiz-ui:build"
           }
         },
         "test": {
@@ -117,7 +117,7 @@
         }
       }
     },
-    "common-ui-e2e": {
+    "quiz-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -126,11 +126,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "common-ui:serve"
+            "devServerTarget": "quiz-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "common-ui:serve:production"
+              "devServerTarget": "quiz-ui:serve:production"
             }
           }
         },
@@ -146,5 +146,5 @@
       }
     }
   },
-  "defaultProject": "common-ui"
+  "defaultProject": "quiz-ui"
 }

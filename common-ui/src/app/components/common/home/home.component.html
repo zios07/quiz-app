@@ -2,7 +2,7 @@
   <br><br><br><br><br><br><br><br><br>
   <form class="text-center p-5">
 
-    <div class="btn-group" role="group" aria-label="Basic example" *ngIf="tokenService.getToken() === 'admin'">
+    <div class="btn-group" role="group" aria-label="Basic example" *ngIf="roleService.getConnectedRole() === 'ADMIN'">
       <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/candidats">
         <mat-icon>person</mat-icon><br>
         <span>
@@ -24,7 +24,7 @@
     </div>
 
 
-    <div class="btn-group" role="group" aria-label="Basic example" *ngIf="tokenService.getToken() === 'user'">
+    <div class="btn-group" role="group" aria-label="Basic example" *ngIf="roleService.getConnectedRole() === 'USER'">
       <button mdbBtn type="button" color="light" class="waves-light home-btn" mdbWavesEffect routerLink="/quiz">
         <mat-icon>start</mat-icon><br>
         <span>
@@ -41,3 +41,4 @@
 
   </form>
 </div>
+<app-login *ngIf="!auth.isAuthenticated()"></app-login>

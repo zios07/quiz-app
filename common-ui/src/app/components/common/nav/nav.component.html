@@ -5,41 +5,38 @@
       <span>HOME</span>
     </a>
 
-    <!-- Admin menu -->
+    <!-- ADMIN menu -->
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="quizMenu" *ngIf="username === 'admin'">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="quizMenu" *ngIf="connectedRole === 'ADMIN'">
       <mat-icon>poll</mat-icon>
       <span>Quiz</span>
     </button>
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="questionMenu" *ngIf="username === 'admin'">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="questionMenu" *ngIf="connectedRole === 'ADMIN'">
       <mat-icon>help</mat-icon>
       <span>Questions</span>
     </button>
 
-    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="candidatMenu" *ngIf="username === 'admin'">
+    <button class="mat-button-menu" mat-button [matMenuTriggerFor]="candidatMenu" *ngIf="connectedRole === 'ADMIN'">
       <mat-icon>person</mat-icon>
       <span>Candidats</span>
     </button>
 
     <!-- Candidat menu -->
 
-    <button class="mat-button-menu" mat-button routerLink="quiz" *ngIf="username === 'user'">
+    <button class="mat-button-menu" mat-button routerLink="quiz" *ngIf="connectedRole === 'USER'">
       <mat-icon>help</mat-icon>&nbsp;
       <span>Start Quiz</span>
     </button>
 
-    <button class="mat-button-menu" mat-button routerLink="result" *ngIf="username === 'user'">
+    <button class="mat-button-menu" mat-button routerLink="result" *ngIf="connectedRole === 'USER'">
       <mat-icon>poll</mat-icon>&nbsp;
       <span>View Result</span>
     </button>
 
     <span class="fill-remaining-space"></span>
-    <!-- Fake shit -->
-    <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{username}}</b></span>
 
-    <!-- Real shit -->
-    <!-- <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span> -->
+    <span class="welcome-span" *ngIf="authenticated">Signed in as <b>{{connectedUser?.account.username}}</b></span>
     <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authMenu">
       <mat-icon>menu</mat-icon>
     </button>
@@ -98,12 +95,6 @@
     </a>
 
     <span class="fill-remaining-space"></span>
-
-
-    <a mat-button color="primary" routerLink="">
-      <!-- <mat-icon>home</mat-icon>&nbsp; -->
-      <span>Accueil</span>
-    </a>
 
     <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authmenu">
       <!-- <mat-icon>security</mat-icon> -->
