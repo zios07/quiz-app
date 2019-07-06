@@ -18,6 +18,7 @@ export class QuizFormComponent implements OnInit {
   questionList = [];
   quiz;
   mode = 'ADD';
+  id;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,6 +46,7 @@ export class QuizFormComponent implements OnInit {
     if (this.mode === 'ADD') {
       observable = this.quizService.createQuiz(this.quiz);
     } else if (this.mode === 'EDIT') {
+      this.quiz.id = this.id;
       observable = this.quizService.updateQuiz(this.quiz);
     }
     observable.subscribe(resp => {
@@ -73,10 +75,10 @@ export class QuizFormComponent implements OnInit {
   }
 
   loadQuizToEdit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
       this.mode = 'EDIT';
-      this.quizService.getQuizById(id).subscribe((result: any) => {
+      this.quizService.getQuizById(this.id).subscribe((result: any) => {
         this.fillForm(result);
       }, error => {
         this.toastr.error(String(error));

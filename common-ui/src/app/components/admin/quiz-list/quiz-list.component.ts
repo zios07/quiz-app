@@ -17,10 +17,10 @@ export class QuizListComponent implements OnInit {
   constructor(private quizService: QuizService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.loadQuestions();
+    this.loadQuizzes();
   }
 
-  loadQuestions() {
+  loadQuizzes() {
     this.quizService.getQuizzes().subscribe((resp: any) => {
       this.quizzes = resp;
     }, error => {
@@ -29,7 +29,7 @@ export class QuizListComponent implements OnInit {
   }
 
 
-  deleteQuestion(id) {
+  removeQuiz(id) {
     this.quizService.deleteQuiz(id).subscribe(resp => {
       this.toastr.info('Success de suppression');
       this.ngOnInit();

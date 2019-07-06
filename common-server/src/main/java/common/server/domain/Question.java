@@ -1,5 +1,7 @@
 package common.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -19,6 +21,10 @@ public class Question {
 
     private String category;
 
+    @ManyToOne
+    @JsonBackReference
+    private Quiz quiz;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Answer> answers;
 
@@ -26,11 +32,12 @@ public class Question {
 
     }
 
-    public Question(String name, String value, Boolean isMultiple, String category, List<Answer> answers) {
+    public Question(String name, String value, Boolean isMultiple, String category, Quiz quiz, List<Answer> answers) {
         this.name = name;
         this.value = value;
         this.isMultiple = isMultiple;
         this.category = category;
+        this.quiz = quiz;
         this.answers = answers;
     }
 
@@ -72,6 +79,14 @@ public class Question {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     public List<Answer> getAnswers() {

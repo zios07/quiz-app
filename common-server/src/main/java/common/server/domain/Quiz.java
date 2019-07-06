@@ -1,5 +1,7 @@
 package common.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,7 +17,8 @@ public class Quiz {
 
     private String level;
 
-    @OneToMany
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Question> questions;
 
     @OneToOne

@@ -16,6 +16,7 @@ export class QuestionFormComponent implements OnInit {
   submitted = false;
   question;
   mode = 'ADD';
+  id;
   answers = [];
 
   constructor(
@@ -45,6 +46,7 @@ export class QuestionFormComponent implements OnInit {
     if (this.mode === 'ADD') {
       observable = this.questionService.createQuestion(this.question);
     } else if (this.mode === 'EDIT') {
+      this.question.id = this.id;
       observable = this.questionService.updateQuestion(this.question);
     }
     observable.subscribe(resp => {
@@ -69,10 +71,10 @@ export class QuestionFormComponent implements OnInit {
   }
 
   loadQuestionToEdit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
       this.mode = 'EDIT';
-      this.questionService.getQuestionById(id).subscribe((result: any) => {
+      this.questionService.getQuestionById(this.id).subscribe((result: any) => {
         this.fillForm(result);
       }, error => {
         this.toastr.error(String(error));

@@ -26,4 +26,13 @@ export class QuestionListComponent implements OnInit {
       this.toastr.error('Erreur inconnue');
     });
   }
+
+  deleteQuestion(id) {
+    this.questionService.deleteQuestion(id).subscribe(resp => {
+      this.toastr.info('Success de suppression');
+      this.ngOnInit();
+    }, error => {
+      this.toastr.error('Erreur inconnue');
+    });
+  }
 }
