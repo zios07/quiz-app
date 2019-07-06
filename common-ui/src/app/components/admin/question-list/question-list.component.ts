@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-question-list',
@@ -7,34 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionListComponent implements OnInit {
 
-  elements: any = [
-    {
-      id: 1, heading1: '1',
-      heading2: 'What is PaaS',
-      heading3: 'Intermediate',
-      heading4: '5',
-      heading5: 'PaaS is Plateform as service',
-    },
-    {
-      id: 2, heading1: '2',
-      heading2: 'What is an object in oop',
-      heading3: 'Beginner',
-      heading4: '3',
-      heading5: 'Object is an instance of a class holding some values',
-    },
-    {
-      id: 3, heading1: '3',
-      heading2: 'What is the main advantage of Docker',
-      heading3: 'Advanced',
-      heading4: '12',
-      heading5: 'Build once and run everywhere',
-    },
-  ];
-  headElements = ['ID', 'Question Name', 'Level', 'Answer ID', 'Answer value'];
+  questions = [];
 
-  constructor() { }
+  headElements = ['ID', 'Name', 'Value', 'Category'];
+
+  constructor(private questionService: QuestionService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.loadQuestions();
   }
 
+  loadQuestions() {
+    this.questionService.getQuestions().subscribe((resp: any) => {
+      this.questions = resp;
+    }, error => {
+      this.toastr.error('Erreur inconnue');
+    });
+  }
+
+
+  deleteQuestion(id) {
+    this.questionService.deleteQuestion(id).subscribe(resp => {
+      this.toastr.info('Success de suppression');
+      this.ngOnInit();
+    }, error => {
+      this.toastr.error('Erreur inconnue');
+    });
+  }
 }

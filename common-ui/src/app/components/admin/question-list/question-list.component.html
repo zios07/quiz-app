@@ -6,6 +6,8 @@
 <br><br>
 <div class="container">
   <div class="row">
+    <div class="col-md-2">
+    </div>
     <div class="col">
       <table mdbTable responsive="true">
         <thead>
@@ -14,14 +16,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr mdbTableCol *ngFor="let el of elements">
+          <tr mdbTableCol *ngFor="let el of questions">
             <th scope="row">{{el.id}}</th>
-            <td>{{el.heading2}}</td>
-            <td>{{el.heading4}}</td>
-            <td>{{el.heading5}}</td>
+            <td>{{el.name}}</td>
+            <td>{{el.value}}</td>
+            <td>{{el.category}}</td>
             <td>
-              <button type="button" mdbBtn color="light" mdbWavesEffect>Edit</button>
-              <button type="button" mdbBtn color="dark" mdbWavesEffect>Delete</button>
+              <button type="button" mdbBtn color="light" [routerLink]="['/question/form/', el.id]" mdbWavesEffect>Edit</button>
+              <button type="button" mdbBtn color="dark" (click)="deleteQuestion(el.id)" mdbWavesEffect>Delete</button>
             </td>
           </tr>
         </tbody>

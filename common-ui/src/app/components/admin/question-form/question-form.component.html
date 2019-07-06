@@ -6,23 +6,50 @@
     <div class="col-8">
 
       <!-- Default form contact -->
-      <form class="text-center border border-light p-5">
+      <form class="text-center border border-light p-5" *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()"
+        #signupForm="ngForm">
 
         <p class="h4 mb-4">New Question</p>
 
         <!-- Name -->
-        <input type="text" id="quizname" class="form-control mb-4" placeholder="Name">
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="name" id="quizname" class="form-control mb-4" placeholder="Name">
+        </div>
+
+        <!-- Value -->
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="value" id="quizvalue" class="form-control mb-4"
+            placeholder="Value">
+        </div>
 
         <!-- Subject -->
-        <select class="custom-select">
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-          <option value="3">Category 3</option>
+        <label for="answer" class="">Category</label>
+
+        <select mdbInput class="custom-select" formControlName="category">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Expert">Expert</option>
         </select>
+
+        <div class="md-form">
+          <input mdbInput type="text" formControlName="answer" id="quizanswer" class="form-control mb-4" placeholder="Answer">
+          <button [disabled]="!form.value.answer" type="button" flobuttonting="true" size="sm" mdbWavesEffect
+            (click)="addAnswer()">
+            <mdb-icon fas icon="plus"></mdb-icon>
+            <span>&nbsp;Add</span>
+          </button>
+        </div>
+        <h4>
+          <mdb-badge info="true" *ngFor="let answer of answers">{{answer.value}}&nbsp;&nbsp;
+            <mdb-icon style="cursor: pointer" (click)="removeAnswer(answer)" fas icon="trash"></mdb-icon>
+          </mdb-badge>&nbsp;&nbsp;
+        </h4>
+
         <br>
         <br>
-        <!-- Send button -->
-        <button class="btn btn-info btn-block" type="submit">Create Question</button>
+
+        <!-- Create button -->
+        <button class="btn btn-info btn-block" type="submit">Save Question</button>
 
       </form>
       <!-- Default form contact -->

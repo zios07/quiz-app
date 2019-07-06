@@ -11,6 +11,10 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
 
+  getQuestionById(id) {
+    return this.http.get(this.url + '/' + id);
+  }
+
   getQuestions() {
     return this.http.get(this.url);
   }
