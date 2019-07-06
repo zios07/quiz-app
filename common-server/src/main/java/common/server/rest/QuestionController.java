@@ -34,7 +34,13 @@ public class QuestionController {
 		Question savedQuestion =  service.addQuestion(question);
 		return new ResponseEntity<Question>(savedQuestion, HttpStatus.CREATED);	
 	}
-	
+
+	@PutMapping
+	public ResponseEntity<Question> updateQuestion(@RequestBody Question question) {
+		Question savedQuestion =  service.updateQuestion(question);
+		return new ResponseEntity<Question>(savedQuestion, HttpStatus.CREATED);
+	}
+
 	@DeleteMapping(value = "{id}")
 	public ResponseEntity<Void> deleteQuestion(@PathVariable long id) throws NotFoundException {
 		service.deleteQuestion(id);

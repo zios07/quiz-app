@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "USER_TABLE")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id
@@ -31,9 +32,8 @@ public class User {
         super();
     }
 
-    public User(Long id, String firstName, String lastName, LocalDate bDate, Account account, Role role) {
+    public User(String firstName, String lastName, LocalDate bDate, Account account, Role role) {
         super();
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.bDate = bDate;

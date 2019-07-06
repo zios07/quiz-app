@@ -15,14 +15,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr mdbTableCol *ngFor="let el of elements">
+          <tr mdbTableCol *ngFor="let el of quizzes">
             <th scope="row">{{el.id}}</th>
-            <td>{{el.heading2}}</td>
-            <td>{{el.heading4}}</td>
-            <td>{{el.heading5}}</td>
+            <td>{{el.label}}</td>
+            <td>{{el.level}}</td>
             <td>
-              <button type="button" mdbBtn color="light" mdbWavesEffect>Edit</button>
-              <button type="button" mdbBtn color="dark" mdbWavesEffect>Delete</button>
+              <button type="button" mdbBtn color="light" [routerLink]="['/quiz/form/', el.id]" mdbWavesEffect>Edit</button>
+              <button type="button" mdbBtn color="dark" (click)="removeQuiz(el.id)" mdbWavesEffect>Delete</button>
             </td>
           </tr>
         </tbody>

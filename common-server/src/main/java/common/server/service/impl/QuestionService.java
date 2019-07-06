@@ -40,4 +40,9 @@ public class QuestionService implements IQuestionService {
     public List<Question> searchQuestions(Question question) {
         return questionRepository.findAll();
     }
+
+    @Override
+    public Question updateQuestion(Question question) {
+        return questionRepository.save(question);
+    }
 }

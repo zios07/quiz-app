@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/services/question.service';
+import { ToastrService } from 'ngx-toastr';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-quiz-list',
@@ -7,38 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizListComponent implements OnInit {
 
-  elements: any = [
-    {
-      id: 1, heading1: '1',
-      heading2: 'Docker Quiz',
-      heading4: 'Advanced',
-      heading5: '50',
-    },
-    {
-      id: 2, heading1: '2',
-      heading2: 'Java Quiz',
-      heading4: 'Beginner',
-      heading5: '20',
-    },
-    {
-      id: 3, heading1: '3',
-      heading2: 'Management Quiz',
-      heading4: 'Intermediate',
-      heading5: '40',
-    },
-    {
-      id: 4, heading1: '4',
-      heading2: 'Java Quiz',
-      heading4: 'Intermediate',
-      heading5: '44',
-    },
-  ];
-  headElements = ['ID', 'Quiz', 'Level', 'Number of questions'];
+  headElements = ['ID', 'Quiz Label', 'Level'];
 
+  quizzes = [];
 
-  constructor() { }
+  constructor(private quizService: QuizService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.loadQuestions();
   }
 
+  loadQuestions() {
+    this.quizService.getQuizzes().subscribe((resp: any) => {
+      this.quizzes = resp;
+    }, error => {
+      this.toastr.error('Erreur inconnue');
+    });
+  }
+
+
+  deleteQuestion(id) {
+    this.quizService.deleteQuiz(id).subscribe(resp => {
+      this.toastr.info('Success de suppression');
+      this.ngOnInit();
+    }, error => {
+      this.toastr.error('Erreur inconnue');
+    });
+  }
 }

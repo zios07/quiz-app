@@ -9,6 +9,8 @@ public interface IQuizService {
 
 	Quiz addQuiz(Quiz quiz);
 
+	Quiz update(Quiz quiz);
+
 	Quiz findQuiz(long id) throws NotFoundException;
 
 	List<Quiz> findAllQuizzes();

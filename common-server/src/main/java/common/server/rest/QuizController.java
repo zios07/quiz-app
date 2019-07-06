@@ -28,11 +28,17 @@ public class QuizController {
 		List<Quiz> quizzes = service.findAllQuizzes();
 		return new ResponseEntity<>(quizzes, HttpStatus.OK);
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Quiz> addQuiz(@RequestBody Quiz quiz) {
 		Quiz savedQuiz =  service.addQuiz(quiz);
-		return new ResponseEntity<Quiz>(savedQuiz, HttpStatus.CREATED);	
+		return new ResponseEntity<Quiz>(savedQuiz, HttpStatus.CREATED);
+	}
+
+	@PutMapping
+	public ResponseEntity<Quiz> updateQuiz(@RequestBody Quiz quiz) {
+		Quiz savedQuiz =  service.update(quiz);
+		return new ResponseEntity<Quiz>(savedQuiz, HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping(value = "{id}")

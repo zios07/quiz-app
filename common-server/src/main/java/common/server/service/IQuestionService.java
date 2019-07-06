@@ -16,5 +16,6 @@ public interface IQuestionService {
 	void deleteQuestion(long id) throws NotFoundException;
 
 	List<Question> searchQuestions(Question question);
-	
+
+    Question updateQuestion(Question question);
 }

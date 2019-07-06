@@ -22,6 +22,11 @@ public class QuizService implements IQuizService {
     }
 
     @Override
+    public Quiz update(Quiz quiz) {
+        return quizRepository.save(quiz);
+    }
+
+    @Override
     public Quiz findQuiz(long id) {
         return quizRepository.findById(id).get();
     }
