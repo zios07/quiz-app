@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { User } from '../models/User';
@@ -9,6 +9,7 @@ import { User } from '../models/User';
 export class UserService {
 
   url: string = environment.API_URL + '/users';
+  candidatUrl: string = environment.API_URL + '/candidats';
 
   constructor(
     private http: HttpClient
@@ -40,6 +41,32 @@ export class UserService {
 
   findById(id) {
     return this.http.get(this.url + '/' + id);
+  }
+
+  getCandidats() {
+    return this.http.get(this.candidatUrl);
+  }
+
+  saveCandidat(candidat, resume?) {
+
+    const fd = new FormData();
+    const blob = new Blob([resume], { type: 'application/json' });
+    fd.append('resume', blob, resume.name);
+    fd.append('candidat', JSON.stringify(candidat));
+
+    return this.http.post(this.candidatUrl, fd);
+  }
+
+
+  updateCandidat(candidat, resume?) {
+
+    const fd = new FormData();
+    const blob = new Blob([resume], { type: 'application/json' });
+    fd.append('resume', blob, resume.name);
+    fd.append('candidat', JSON.stringify(candidat));
+
+    return this.http.put(this.candidatUrl, fd);
+
   }
 
 }

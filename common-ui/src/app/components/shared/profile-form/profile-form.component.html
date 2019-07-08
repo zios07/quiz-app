@@ -6,58 +6,45 @@
     <div class="col-8">
 
       <!-- Default form contact -->
-      <form class="text-center border border-light p-5">
+      <form class="text-center border border-light p-5" *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()"
+        #signupForm="ngForm">
 
-        <p class="h4 mb-4">Candidat Profile</p>
+        <p class="h4 mb-4">Candidat form</p>
 
         <!-- Name -->
-        <input type="text" id="quizname" class="form-control mb-4" placeholder="First Name">
-        <input type="text" id="quizname" class="form-control mb-4" placeholder="Last Name">
-        <input type="email" id="quizname" class="form-control mb-4" placeholder="Email">
-        <input type="password" id="quizname" class="form-control mb-4" placeholder="Password">
-        <input type="date" id="quizname" class="form-control mb-4" placeholder="Birth date">
+        <input formControlName="firstName" type="text" id="firstname" class="form-control mb-4" placeholder="First Name">
+        <input formControlName="lastName" type="text" id="lastname" class="form-control mb-4" placeholder="Last Name">
+        <input formControlName="username" type="text" id="username" class="form-control mb-4" placeholder="Username">
+        <input formControlName="password" type="password" id="pw" class="form-control mb-4" placeholder="Password">
 
 
         <!-- Post -->
         <label for="">Current post</label>
-        <select class="custom-select">
-          <option value="1">Software Engineer</option>
-          <option value="2">DevOps Lead</option>
-          <option value="3">Project Manager</option>
+        <select formControlName="post" class="custom-select">
+          <option value="Software Engineer">Software Engineer</option>
+          <option value="DevOps Lead">DevOps Lead</option>
+          <option value="Project Manager">Project Manager</option>
         </select>
         <hr>
 
         <br>
         <label>Skills : </label> <br>
         <!-- Default inline 1-->
-        <mdb-checkbox [inline]="true" [default]="true">Java</mdb-checkbox>
-
-        <!-- Default inline 2-->
-        <mdb-checkbox [inline]="true" [default]="true">Angular</mdb-checkbox>
-
-        <!-- Default inline 3-->
-        <mdb-checkbox [inline]="true" [default]="true">Scrum</mdb-checkbox> <br> <br>
-
-        <!-- Default inline 3-->
-        <mdb-checkbox [inline]="true" [default]="true">Android</mdb-checkbox>
-
-        <!-- Default inline 3-->
-        <mdb-checkbox [inline]="true" [default]="true">Management</mdb-checkbox>
-
-        <!-- Default inline 3-->
-        <mdb-checkbox [inline]="true" [default]="true">DevOps</mdb-checkbox>
-
+        <label formArrayName="skills" *ngFor="let genre of form.controls.skills.controls; let i = index">
+          <input type="checkbox" [formControlName]="i">
+          {{skills[i].label}}
+        </label>
         <br>
 
         <hr>
 
         <label>Resume : </label> <br><br>
-        <input type="file">
+        <input type="file" (change)="selectFile($event)">
 
         <br><br>
 
         <!-- Send button -->
-        <button class="btn btn-info btn-block" type="submit">Save Profile</button>
+        <button class="btn btn-info btn-block" type="submit">Save Candidat</button>
 
       </form>
       <!-- Default form contact -->

@@ -4,7 +4,9 @@ import common.server.domain.Candidat;
 import common.server.exception.NotFoundException;
 import common.server.repository.CandidatRepository;
 import common.server.service.ICandidatService;
+import common.server.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +17,16 @@ public class CandidatService implements ICandidatService {
     @Autowired
     private CandidatRepository candidatRepository;
 
+    @Autowired
+    private IRoleService roleService;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public Candidat addCandidat(Candidat candidat) {
+        candidat.setRole(roleService.getRoleUser());
+        candidat.getAccount().setPassword(bCryptPasswordEncoder.encode(candidat.getAccount().getPassword()));
         return candidatRepository.save(candidat);
     }
 

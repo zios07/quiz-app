@@ -16,15 +16,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr mdbTableCol *ngFor="let el of elements">
+          <tr mdbTableCol *ngFor="let el of candidats">
             <th scope="row">{{el.id}}</th>
-            <td>{{el.heading2}}</td>
-            <td>{{el.heading3}}</td>
-            <td>{{el.heading4}}</td>
-            <td>{{el.heading5}}</td>
+            <td>{{el.firstName}}</td>
+            <td>{{el.lastName}}</td>
+            <td>{{el.email}}</td>
+            <td>{{el.result}}</td>
             <td>
-              <button type="button" mdbBtn color="light" mdbWavesEffect>Edit</button>
-              <button type="button" mdbBtn color="dark" mdbWavesEffect>Delete</button>
+              <button type="button" mdbBtn color="light" [routerLink]="['/candidat/form/', el.id]" router mdbWavesEffect>Edit</button>
+              <button type="button" mdbBtn color="dark" (click)="deleteCandidat(el.id)" mdbWavesEffect>Delete</button>
             </td>
           </tr>
         </tbody>
