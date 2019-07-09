@@ -1,9 +1,6 @@
 package common.server.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "RESULT_TABLE")
@@ -23,16 +20,24 @@ public class Result {
 
     private int nbWrongAnswers;
 
+    @OneToOne
+    private Quiz quiz;
+
+    @OneToOne
+    private Candidat candidat;
+
     public Result() {
 
     }
 
-    public Result(String grade, float score, int nbCorrectAnswers, int nbNonAnswered, int nbWrongAnswers) {
+    public Result(String grade, float score, int nbCorrectAnswers, int nbNonAnswered, int nbWrongAnswers, Quiz quiz, Candidat candidat) {
         this.grade = grade;
         this.score = score;
         this.nbCorrectAnswers = nbCorrectAnswers;
         this.nbNonAnswered = nbNonAnswered;
         this.nbWrongAnswers = nbWrongAnswers;
+        this.quiz = quiz;
+        this.candidat = candidat;
     }
 
     public long getId() {
@@ -82,4 +87,21 @@ public class Result {
     public void setNbWrongAnswers(int nbWrongAnswers) {
         this.nbWrongAnswers = nbWrongAnswers;
     }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
+
+    public Candidat getCandidat() {
+        return candidat;
+    }
+
+    public void setCandidat(Candidat candidat) {
+        this.candidat = candidat;
+    }
 }
+

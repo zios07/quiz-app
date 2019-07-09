@@ -21,15 +21,11 @@ public class Quiz {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Question> questions;
 
-    @OneToOne
-    private Result result;
-
     public Quiz() {
     }
 
     public Quiz(List<Question> questions, Result result, String label, String level) {
         this.questions = questions;
-        this.result = result;
         this.label = label;
         this.level = level;
     }
@@ -48,14 +44,6 @@ public class Quiz {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
-    }
-
-    public Result getResult() {
-        return result;
-    }
-
-    public void setResult(Result result) {
-        this.result = result;
     }
 
     public String getLabel() {

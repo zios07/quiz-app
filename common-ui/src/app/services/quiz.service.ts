@@ -11,12 +11,20 @@ export class QuizService {
 
   constructor(private http: HttpClient) { }
 
+  getRandomQuiz() {
+    return this.http.get(this.url + '/random');
+  }
+
   getQuizzes() {
     return this.http.get(this.url);
   }
 
   getQuizById(id) {
     return this.http.get(this.url + '/' + id);
+  }
+
+  submitQuiz(result) {
+    return this.http.post(this.url + '/submit', result);
   }
 
   createQuiz(quiz) {

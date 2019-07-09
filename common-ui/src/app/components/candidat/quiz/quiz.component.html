@@ -7,23 +7,14 @@
       <div class="col-md-12">
 
         <!-- Stepers Wrapper -->
-        <ul class="stepper stepper-vertical">
+        <ul class="stepper stepper-vertical" *ngIf="!loading">
 
-          <!-- First Step -->
-          <li class="completed">
-            <a>
-              <span class="circle">1</span>
-              <span class="label">Question 1</span>
-            </a>
-          </li>
-
-          <!-- Second Step -->
-          <li class="active">
+          <li class="active" *ngFor="let question of quiz.questions; let i = index">
 
             <!--Section Title -->
             <a>
-              <span class="circle">2</span>
-              <span class="label">Question 2</span>
+              <span class="circle">{{i + 1}}</span>
+              <span class="label">{{ question.name }}</span>
             </a>
 
             <!-- Section Description -->
@@ -32,44 +23,19 @@
               <br>
               <form class="text-center">
                 <b> <u>Question :</u></b>
-                <p class="h4 mb-4" styl> - Which of the followings are modules of the Spring Framework ?</p>
+                <p class="h4 mb-4" styl> - {{question.value}}</p>
                 <b><u>Answer :</u></b><br>
 
                 <!-- Default inline 1-->
-                <mdb-checkbox [inline]="true" [default]="true">Spring Data</mdb-checkbox>
-
-                <!-- Default inline 2-->
-                <mdb-checkbox [inline]="true" [default]="true">Spring MVC</mdb-checkbox>
-
-                <!-- Default inline 3-->
-                <mdb-checkbox [inline]="true" [default]="true">Spring MachineLearning</mdb-checkbox>
-
-                <!-- Default inline 3-->
-                <mdb-checkbox [inline]="true" [default]="true">Spring Batch</mdb-checkbox>
+                <mdb-checkbox [inline]="true" [default]="true" [value]="answer" *ngFor="let answer of question.answers" (change)="checkChanged($event, question, answer)">{{answer.value}}</mdb-checkbox>
 
                 <br><br>
 
-                <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="light" mdbWavesEffect>Previous</button>
-                <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="blue" mdbWavesEffect>Next</button>
+                <!-- <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="light" (click)="nextQuestion(i)" mdbWavesEffect>Previous</button> -->
+                <!-- <button type="button" mdbBtn style="height: 30px; width: 100px; font-size: 0.3em; padding: 0" color="blue" (click)="validate(question, )" mdbWavesEffect>Valider</button> -->
               </form>
               <br>
             </div>
-          </li>
-
-          <!-- Third Step -->
-          <li class="active">
-            <a>
-              <span class="circle">3</span>
-              <span class="label">Question 3</span>
-            </a>
-          </li>
-
-          <!-- Question 3 -->
-          <li class="active">
-            <a>
-              <span class="circle">4</span>
-              <span class="label">Question 4</span>
-            </a>
           </li>
 
         </ul>
@@ -81,7 +47,7 @@
     <!-- Steppers Navigation -->
     <div class="row mt-1">
       <div class="col-md-12 text-right">
-        <button class="btn btn-primary btn-sm">Submit Quiz</button>
+        <button class="btn btn-primary" (click)="submitQuiz()">Submit Quiz</button>
       </div>
     </div>
     <!-- /.Vertical Steppers -->

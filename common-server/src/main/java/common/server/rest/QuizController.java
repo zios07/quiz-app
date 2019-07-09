@@ -1,6 +1,8 @@
 package common.server.rest;
 
 import common.server.domain.Quiz;
+import common.server.domain.Result;
+import common.server.dto.QuizResponse;
 import common.server.exception.NotFoundException;
 import common.server.service.IQuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,14 @@ public class QuizController {
 
 	@Autowired
 	private IQuizService service;
-	
+
+
+	@GetMapping(value = "random")
+	public ResponseEntity<Quiz> getRandomQuiz() throws NotFoundException {
+		Quiz quiz = service.getRandomQuiz();
+		return new ResponseEntity<>(quiz, HttpStatus.OK);
+	}
+
 	@GetMapping(value = "{id}")
 	public ResponseEntity<Quiz> findQuiz(@PathVariable long id) throws NotFoundException {
 		Quiz quiz = service.findQuiz(id);
@@ -32,13 +41,19 @@ public class QuizController {
 	@PostMapping
 	public ResponseEntity<Quiz> addQuiz(@RequestBody Quiz quiz) {
 		Quiz savedQuiz =  service.addQuiz(quiz);
-		return new ResponseEntity<Quiz>(savedQuiz, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedQuiz, HttpStatus.CREATED);
+	}
+
+	@PostMapping(value = "submit")
+	public ResponseEntity<Result> submitQuiz(@RequestBody QuizResponse quizResponse) {
+		Result result =  service.submitQuiz(quizResponse);
+		return new ResponseEntity<>(result, HttpStatus.CREATED);
 	}
 
 	@PutMapping
 	public ResponseEntity<Quiz> updateQuiz(@RequestBody Quiz quiz) {
 		Quiz savedQuiz =  service.update(quiz);
-		return new ResponseEntity<Quiz>(savedQuiz, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedQuiz, HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping(value = "{id}")

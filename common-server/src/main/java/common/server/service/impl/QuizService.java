@@ -1,6 +1,8 @@
 package common.server.service.impl;
 
 import common.server.domain.Quiz;
+import common.server.domain.Result;
+import common.server.dto.QuizResponse;
 import common.server.exception.NotFoundException;
 import common.server.repository.QuizRepository;
 import common.server.service.IQuizService;
@@ -44,5 +46,15 @@ public class QuizService implements IQuizService {
     @Override
     public List<Quiz> searchQuizzes(Quiz quiz) {
         return quizRepository.findAll();
+    }
+
+    @Override
+    public Quiz getRandomQuiz() {
+        return quizRepository.findAll().stream().findAny().get();
+    }
+
+    @Override
+    public Result submitQuiz(QuizResponse quizResponse) {
+        return new Result();
     }
 }

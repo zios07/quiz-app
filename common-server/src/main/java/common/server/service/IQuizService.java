@@ -1,6 +1,8 @@
 package common.server.service;
 
 import common.server.domain.Quiz;
+import common.server.domain.Result;
+import common.server.dto.QuizResponse;
 import common.server.exception.NotFoundException;
 
 import java.util.List;
@@ -18,5 +20,8 @@ public interface IQuizService {
 	void deleteQuiz(long id) throws NotFoundException;
 
 	List<Quiz> searchQuizzes(Quiz quiz);
-	
+
+    Quiz getRandomQuiz();
+
+    Result submitQuiz(QuizResponse quizResponse);
 }
