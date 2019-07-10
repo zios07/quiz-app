@@ -9,7 +9,7 @@
       <form class="text-center border border-light p-5" *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()"
         #signupForm="ngForm">
 
-        <p class="h4 mb-4">Candidat form</p>
+        <p class="h4 mb-4">Formulaire Candidat</p>
 
         <!-- Name -->
         <input formControlName="firstName" type="text" id="firstname" class="form-control mb-4" placeholder="First Name">
@@ -19,7 +19,7 @@
 
 
         <!-- Post -->
-        <label for="">Current post</label>
+        <label for="">Poste courant</label>
         <select formControlName="post" class="custom-select">
           <option value="Software Engineer">Software Engineer</option>
           <option value="DevOps Lead">DevOps Lead</option>
@@ -28,7 +28,7 @@
         <hr>
 
         <br>
-        <label>Skills : </label> <br>
+        <label>Competences : </label> <br>
         <!-- Default inline 1-->
         <label formArrayName="skills" *ngFor="let genre of form.controls.skills.controls; let i = index">
           <input type="checkbox" [formControlName]="i">
@@ -38,13 +38,13 @@
 
         <hr>
 
-        <label>Resume : </label> <br><br>
+        <label>CV : </label> <br><br>
         <input type="file" (change)="selectFile($event)">
 
         <br><br>
 
         <!-- Send button -->
-        <button class="btn btn-info btn-block" type="submit">Save Candidat</button>
+        <button class="btn btn-info btn-block" type="submit">Enregistrer Candidat</button>
 
       </form>
       <!-- Default form contact -->

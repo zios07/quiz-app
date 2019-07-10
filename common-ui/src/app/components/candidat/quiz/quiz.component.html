@@ -24,7 +24,7 @@
               <form class="text-center">
                 <b> <u>Question :</u></b>
                 <p class="h4 mb-4" styl> - {{question.value}}</p>
-                <b><u>Answer :</u></b><br>
+                <b><u>Reponse :</u></b><br>
 
                 <!-- Default inline 1-->
                 <mdb-checkbox [inline]="true" [default]="true" [value]="answer" *ngFor="let answer of question.answers" (change)="checkChanged($event, question, answer)">{{answer.value}}</mdb-checkbox>
@@ -47,7 +47,7 @@
     <!-- Steppers Navigation -->
     <div class="row mt-1">
       <div class="col-md-12 text-right">
-        <button class="btn btn-primary" (click)="submitQuiz()">Submit Quiz</button>
+        <button class="btn btn-primary" (click)="submitQuiz()">Valider le Quiz</button>
       </div>
     </div>
     <!-- /.Vertical Steppers -->

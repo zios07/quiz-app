@@ -9,7 +9,7 @@
       <form class="text-center border border-light p-5" *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()"
         #signupForm="ngForm">
 
-        <p class="h4 mb-4">New Question</p>
+        <p class="h4 mb-4">Nouvelle Question</p>
 
         <!-- Name -->
         <div class="md-form">
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Subject -->
-        <label for="answer" class="">Category</label>
+        <label for="answer" class="">Categorie</label>
 
         <select mdbInput class="custom-select" formControlName="category">
           <option value="Beginner">Beginner</option>
@@ -36,7 +36,7 @@
           <button [disabled]="!form.value.answer" type="button" flobuttonting="true" size="sm" mdbWavesEffect
             (click)="addAnswer()">
             <mdb-icon fas icon="plus"></mdb-icon>
-            <span>&nbsp;Add</span>
+            <span>&nbsp;Ajouter</span>
           </button>
         </div>
         <h4>
@@ -49,7 +49,7 @@
         <br>
 
         <!-- Create button -->
-        <button class="btn btn-info btn-block" type="submit">Save Question</button>
+        <button class="btn btn-info btn-block" type="submit">Enregister Question</button>
 
       </form>
       <!-- Default form contact -->

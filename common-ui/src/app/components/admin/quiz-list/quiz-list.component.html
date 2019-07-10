@@ -1,6 +1,6 @@
 <br><br>
 <form class="text-center border border-light p-5">
-  <p class="h4 mb-4">Quizzes list</p>
+  <p class="h4 mb-4">Liste des Quizzes</p>
 </form>
 <br><br>
 <div class="container">
@@ -20,8 +20,8 @@
             <td>{{el.label}}</td>
             <td>{{el.level}}</td>
             <td>
-              <button type="button" mdbBtn color="light" [routerLink]="['/quiz/form/', el.id]" mdbWavesEffect>Edit</button>
-              <button type="button" mdbBtn color="dark" (click)="removeQuiz(el.id)" mdbWavesEffect>Delete</button>
+              <button type="button" mdbBtn color="light" [routerLink]="['/quiz/form/', el.id]" mdbWavesEffect>Modifier</button>
+              <button type="button" mdbBtn color="dark" (click)="removeQuiz(el.id)" mdbWavesEffect>Supprimer</button>
             </td>
           </tr>
         </tbody>

@@ -10,7 +10,7 @@ import { QuizService } from 'src/app/services/quiz.service';
 })
 export class QuizListComponent implements OnInit {
 
-  headElements = ['ID', 'Quiz Label', 'Level'];
+  headElements = ['ID', 'Quiz libelle', 'Niveau'];
 
   quizzes = [];
 

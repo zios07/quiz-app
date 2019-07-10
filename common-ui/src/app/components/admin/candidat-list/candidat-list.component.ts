@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CandidatListComponent implements OnInit {
 
-  headElements = ['ID', 'First Name', 'Last Name', 'Email', 'Quiz result'];
+  headElements = ['ID', 'Prenom', 'Nom', 'Email', 'Quiz resultat'];
 
   candidats = [];
 

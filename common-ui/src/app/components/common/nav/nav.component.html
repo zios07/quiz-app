@@ -2,7 +2,7 @@
   <mat-toolbar color="primary" *ngIf="authenticated">
     <a mat-button color="secondary" routerLink="home">
       <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-      <span>HOME</span>
+      <span>Accueil</span>
     </a>
 
     <!-- ADMIN menu -->
@@ -26,12 +26,12 @@
 
     <button class="mat-button-menu" mat-button routerLink="quiz" *ngIf="connectedRole === 'USER'">
       <mat-icon>help</mat-icon>&nbsp;
-      <span>Start Quiz</span>
+      <span>Demarrer le Quiz</span>
     </button>
 
     <button class="mat-button-menu" mat-button routerLink="result" *ngIf="connectedRole === 'USER'">
       <mat-icon>poll</mat-icon>&nbsp;
-      <span>View Result</span>
+      <span>Voir les resultats </span>
     </button>
 
     <span class="fill-remaining-space"></span>
@@ -44,18 +44,18 @@
     <mat-menu #quizMenu="matMenu">
       <a mat-menu-item routerLink="quiz/form">
         <mat-icon>add</mat-icon>
-        <span>Add Quiz</span>
+        <span>Ajout Quiz</span>
       </a>
       <a mat-menu-item routerLink="quizzes">
         <mat-icon>list</mat-icon>
-        <span>View quizzes</span>
+        <span>Liste des quizzes</span>
       </a>
     </mat-menu>
 
     <mat-menu #authMenu="matMenu">
       <a mat-menu-item routerLink="candidat/form">
         <mat-icon>person</mat-icon>
-        <span>Profil</span>
+        <span>Profile</span>
       </a>
       <a mat-menu-item (click)="logout()">
         <mat-icon>clear</mat-icon>
@@ -66,22 +66,22 @@
     <mat-menu #questionMenu="matMenu">
       <a mat-menu-item routerLink="question/form">
         <mat-icon>add</mat-icon>
-        <span>Add Question</span>
+        <span>Ajout Question</span>
       </a>
       <a mat-menu-item routerLink="questions">
         <mat-icon>list</mat-icon>
-        <span>View questions</span>
+        <span>Liste des questions</span>
       </a>
     </mat-menu>
 
     <mat-menu #candidatMenu="matMenu">
       <a mat-menu-item routerLink="candidat/form">
         <mat-icon>add</mat-icon>
-        <span>Add Candidats</span>
+        <span>Ajout Candidats</span>
       </a>
       <a mat-menu-item routerLink="candidats">
         <mat-icon>menu</mat-icon>
-        <span>View Candidats</span>
+        <span>Liste des Candidats</span>
       </a>
     </mat-menu>
 
@@ -91,24 +91,24 @@
 
     <a mat-button color="primary" routerLink="">
       <mat-icon>home</mat-icon>&nbsp;
-      <span>My Application</span>
+      <span>RH Quiz Application</span>
     </a>
 
     <span class="fill-remaining-space"></span>
 
     <button class="mat-button-menu" mat-button [matMenuTriggerFor]="authmenu">
       <!-- <mat-icon>security</mat-icon> -->
-      <span>Sign in/up</span>
+      <span>Connexion/inscription</span>
     </button>
 
     <mat-menu #authmenu="matMenu">
 
       <a routerLink="login" mat-menu-item color="primary">
-        <span>Login</span>
+        <span>Connexion</span>
       </a>
 
       <a routerLink="signup" mat-menu-item color="primary">
-        <span>Register</span>
+        <span>Inscription</span>
       </a>
     </mat-menu>
 
