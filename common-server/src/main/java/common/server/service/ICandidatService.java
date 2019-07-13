@@ -16,5 +16,5 @@ public interface ICandidatService {
 	void deleteCandidat(long id) throws NotFoundException;
 
 	List<Candidat> searchCandidats(Candidat candidat);
-	
+
 }

@@ -26,6 +26,12 @@ public class QuizController {
 		return new ResponseEntity<>(quiz, HttpStatus.OK);
 	}
 
+	@GetMapping(value = "result")
+	public ResponseEntity<Result> getResult() throws NotFoundException {
+		Result result = service.getResult();
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
 	@GetMapping(value = "{id}")
 	public ResponseEntity<Quiz> findQuiz(@PathVariable long id) throws NotFoundException {
 		Quiz quiz = service.findQuiz(id);
@@ -45,7 +51,7 @@ public class QuizController {
 	}
 
 	@PostMapping(value = "submit")
-	public ResponseEntity<Result> submitQuiz(@RequestBody QuizResponse quizResponse) {
+	public ResponseEntity<Result> submitQuiz(@RequestBody QuizResponse quizResponse) throws NotFoundException {
 		Result result =  service.submitQuiz(quizResponse);
 		return new ResponseEntity<>(result, HttpStatus.CREATED);
 	}

@@ -39,4 +39,8 @@ export class QuizService {
     return this.http.delete(this.url + '/' + id);
   }
 
+  getResult() {
+    return this.http.get(this.url + '/result');
+  }
+
 }

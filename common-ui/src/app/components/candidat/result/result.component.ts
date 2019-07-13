@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-result',
@@ -6,13 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
-
-
+  result;
+  loading;
   public chartType: string = 'doughnut';
 
-  public chartDatasets: Array<any> = [
-    { data: [800, 50, 20], label: 'My First dataset' }
-  ];
+  public chartDatasets: Array<any> = [];
 
   public chartLabels: Array<any> = ['Correct answers', 'Wrong answers', 'Non answered'];
 
@@ -31,9 +30,21 @@ export class ResultComponent implements OnInit {
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
 
-  constructor() { }
+  constructor(private quizService: QuizService) { }
 
   ngOnInit() {
+    this.getMyResult();
+  }
+
+  getMyResult() {
+    this.loading = true;
+    this.quizService.getResult().subscribe(resp => {
+      this.result = resp;
+      this.chartDatasets = [
+        { data: [this.result.nbCorrectAnswers, this.result.nbWrongAnswers, this.result.nbNonAnswered], label: 'My First dataset' }
+      ];
+      this.loading = false;
+    });
   }
 
 }

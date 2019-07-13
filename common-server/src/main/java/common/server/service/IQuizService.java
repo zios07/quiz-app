@@ -23,5 +23,7 @@ public interface IQuizService {
 
     Quiz getRandomQuiz();
 
-    Result submitQuiz(QuizResponse quizResponse);
+    Result submitQuiz(QuizResponse quizResponse) throws NotFoundException;
+
+	Result getResult();
 }

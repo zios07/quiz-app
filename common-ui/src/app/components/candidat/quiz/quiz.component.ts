@@ -42,26 +42,37 @@ export class QuizComponent implements OnInit {
 
   checkChanged($event, question, answer) {
     if ($event.checked) {
-      const response = new Resp();
-      response.quizID = this.quiz.id;
-      response.questionID = question.id;
-      if (this.result.responses) {
-        let exists = false;
-        this.result.responses.forEach(element => {
-          element.answerIDs.forEach(id => {
-            if (id === answer.id) {
-              exists = true;
-            }
-          });
-        });
 
-        if (!exists) {
-          response.answerIDs = [answer.id];
+      let questionFound = false;
+      this.result.responses.forEach(resp => {
+        if (resp.questionID === question.id) {
+          questionFound = true;
+          let answerFound = false;
+          if (resp.answerIDs) {
+            resp.answerIDs.forEach(answerID => {
+              if (answerID === answer.id) {
+                answerFound = true;
+              }
+            });
+          }
+          if (!answerFound) {
+            if (resp.answerIDs) {
+              resp.answerIDs.push(answer.id);
+            } else {
+              resp.answerIDs = [answer.id];
+            }
+          }
         }
+      });
+
+      if (!questionFound) {
+        const resp = new Resp();
+        resp.answerIDs = [answer.id];
+        resp.questionID = question.id;
+        resp.quizID = this.quiz.id;
+        this.result.responses.push(resp);
       }
-      this.result.responses.push(response);
-    } else {
-      // TODO: When the user unchecks some answer he checked before
+      //TODO: What about unchecking some answers ?
     }
   }
 

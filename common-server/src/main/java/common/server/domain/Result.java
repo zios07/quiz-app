@@ -24,7 +24,7 @@ public class Result {
     private Quiz quiz;
 
     @OneToOne
-    private Candidat candidat;
+    private User candidat;
 
     public Result() {
 
@@ -96,11 +96,11 @@ public class Result {
         this.quiz = quiz;
     }
 
-    public Candidat getCandidat() {
+    public User getCandidat() {
         return candidat;
     }
 
-    public void setCandidat(Candidat candidat) {
+    public void setCandidat(User candidat) {
         this.candidat = candidat;
     }
 }
